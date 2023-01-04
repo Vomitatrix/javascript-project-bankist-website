@@ -28,6 +28,7 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !modal.classList.constains('hidden')) closeModal();
 });
 
+// cookie popup
 const cookieMessage = document.createElement('div');
 cookieMessage.classList.add('cookie-message');
 cookieMessage.innerHTML =
@@ -36,3 +37,6 @@ header.prepend(cookieMessage);
 document.querySelector('.btn--close-cookie').addEventListener('click', () => {
     cookieMessage.remove();
 });
+cookieMessage.style.backgroundColor = '#37383d';
+cookieMessage.style.width = '120%';
+cookieMessage.style.height = Number.parseFloat(getComputedStyle(cookieMessage).height) + 30 + 'px';
