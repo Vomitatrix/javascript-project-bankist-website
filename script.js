@@ -28,15 +28,21 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !modal.classList.constains('hidden')) closeModal();
 });
 
-// cookie popup
-const cookieMessage = document.createElement('div');
-cookieMessage.classList.add('cookie-message');
-cookieMessage.innerHTML =
-    'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
-header.prepend(cookieMessage);
-document.querySelector('.btn--close-cookie').addEventListener('click', () => {
-    cookieMessage.remove();
+// // cookie popup
+// const cookieMessage = document.createElement('div');
+// cookieMessage.classList.add('cookie-message');
+// cookieMessage.innerHTML =
+//     'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// header.prepend(cookieMessage);
+// document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+//     cookieMessage.remove();
+// });
+// cookieMessage.style.backgroundColor = '#37383d';
+// cookieMessage.style.width = '100%';
+// cookieMessage.style.height = Number.parseFloat(getComputedStyle(cookieMessage).height) + 30 + 'px';
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+btnScrollTo.addEventListener('click', e => {
+    section1.scrollIntoView({ behavior: 'smooth' });
 });
-cookieMessage.style.backgroundColor = '#37383d';
-cookieMessage.style.width = '120%';
-cookieMessage.style.height = Number.parseFloat(getComputedStyle(cookieMessage).height) + 30 + 'px';
