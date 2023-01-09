@@ -12,6 +12,9 @@ const section1 = document.querySelector('#section--1');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabs = document.querySelectorAll('.operations__tab');
 const contents = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
+const navLogo = nav.querySelector('.nav__logo');
+const navLinks = nav.querySelectorAll('.nav__link');
 
 function openModal(e) {
     e.preventDefault();
@@ -61,3 +64,15 @@ tabsContainer.addEventListener('click', function (e) {
         .querySelector(`.operations__content--${clicked.dataset.tab}`)
         .classList.add('operations__content--active');
 });
+
+function handleHover(e) {
+    if (e.target.classList.contains('nav__link')) {
+        navLogo.style.opacity = this;
+        navLinks.forEach(link => {
+            if (link !== e.target) link.style.opacity = this;
+        });
+    }
+}
+
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
