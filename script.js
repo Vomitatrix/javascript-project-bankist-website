@@ -76,3 +76,8 @@ function handleHover(e) {
 
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
+
+window.addEventListener('scroll', function () {
+    if (section1.getBoundingClientRect().top <= 0) nav.classList.add('sticky');
+    else nav.classList.remove('sticky');
+});
