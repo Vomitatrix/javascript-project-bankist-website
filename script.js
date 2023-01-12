@@ -126,3 +126,23 @@ const lazyImgObserver = new IntersectionObserver(loadImg, {
     rootMargin: '200px'
 });
 imgTargets.forEach(img => lazyImgObserver.observe(img));
+
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+let currentSlide = 0;
+function slideFunction() {
+    slides.forEach(
+        (slide, i) => (slide.style.transform = `translateX(${(i - currentSlide) * 100}%)`)
+    );
+}
+slideFunction();
+
+btnRight.addEventListener('click', () => {
+    currentSlide < slides.length - 1 ? currentSlide++ : (currentSlide = 0);
+    slideFunction();
+});
+btnLeft.addEventListener('click', () => {
+    currentSlide > 0 ? currentSlide-- : (currentSlide = slides.length - 1);
+    slideFunction();
+});
